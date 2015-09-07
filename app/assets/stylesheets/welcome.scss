@@ -1,0 +1,22 @@
+.welcome {
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  margin-top: 50px;
+  padding: 20px;
+  h2 {
+    font-size: 3em;
+  }
+  h2, p {
+    text-align: center;
+  }
+  .features {
+    width: 400px;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px auto;
+    ol {
+      line-height: 2em;
+    }
+  }
+}
