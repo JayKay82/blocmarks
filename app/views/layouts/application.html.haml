@@ -12,4 +12,16 @@
   %body
     %nav.breadcrumbs
       = link_to 'Blocmarks', root_path
+    - if flash[:notice]
+      %div.alert-box.success{ 'data-alert' => '' }
+        = flash[:notice]
+        %a.close{ href: '#' } &times;
+    - elsif flash[:alert]
+      %div.alert-box.warning{ 'data-alert' => '' }
+        = flash[:alert]
+        %a.close{ href: '#' } &times;
+    - elsif flash[:error]
+      %div.alert-box.alert{ 'data-alert' => '' }
+        = flash[:error]
+        %a.close{ href: '#' } &times;
     = yield
