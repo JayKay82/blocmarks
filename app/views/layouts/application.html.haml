@@ -10,9 +10,18 @@
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav.breadcrumbs
+    %ul.breadcrumbs
       = link_to 'Blocmarks', root_path
-      = link_to 'Sign Up', new_user_registration_path
+      - if current_user
+        %li
+          = link_to (current_user.name || current_user.email), edit_user_registration_path
+        %li
+          = link_to 'Sign Out', destroy_user_session_path, method: :delete
+      - else
+        %li
+          = link_to 'Sign In', new_user_session_path
+        %li
+          = link_to 'Sign Up', new_user_registration_path
     - if flash[:notice]
       %div.alert-box.success{ 'data-alert' => '' }
         = flash[:notice]
