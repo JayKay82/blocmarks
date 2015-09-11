@@ -6,7 +6,7 @@
         = devise_error_messages!
         .field
           = f.label :name
-          = f.email_field :name, autofocus: true, placeholder: 'Enter your name...'
+          = f.text_field :name, autofocus: true, placeholder: 'Enter your name...'
         .field
           = f.label :email
           = f.email_field :email, placeholder: 'Enter your email address...'
