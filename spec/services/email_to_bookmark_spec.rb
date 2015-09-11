@@ -35,4 +35,29 @@ RSpec.describe EmailToBookmark do
       end
     end
   end
+
+  context 'with an empty topic field' do
+    let(:email) { { url: 'http://www.apple.com/', topic: '', user: 'sample@example.com' } }
+    subject(:bookmark) { EmailToBookmark.parse(email) }
+
+    it 'should return a bookmark object with the topic set to Miscellanious' do
+      expect(bookmark.topic.title).to eq('Miscellanious')
+    end
+  end
+
+  context 'with an empty email field' do
+    let(:email) { { url: 'http://www.apple.com/', topic: 'Tech', user: '' } }
+
+    it 'should return false' do
+      expect(EmailToBookmark.parse(email)).to eq(false)
+    end
+  end
+
+  context 'with an empty url field' do
+    let(:email) { { url: '', topic: 'Tech', user: 'sample@example.com' } }
+
+    it 'should return false' do
+      expect(EmailToBookmark.parse(email)).to eq(false)
+    end
+  end
 end
