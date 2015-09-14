@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :topic do
-    title 'Tech'
+    sequence(:title, 1) { |n| "Topic - #{n}" }
   end
 end

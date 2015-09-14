@@ -1,0 +1,10 @@
+%div.row
+  %h2 New Topic
+  %div.large-12.columns
+    %div.devise-form
+      = form_for new_topic do |f|
+        .field
+          = f.label :title
+          = f.text_field :title, autofocus: true, placeholder: 'Enter a topic title...'
+        .actions
+          = f.submit 'Save', class: 'button small radius'

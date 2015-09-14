@@ -3,7 +3,7 @@ class EmailToBookmark
   def self.parse(email)
     return false if (email[:user] == nil) || (email[:user] == '')
     return false if (email[:url] == nil) || (email[:url] == '')
-    email[:topic] = 'Miscellanious' if (email[:topic] == nil) || (email[:topic] == '')
+    email[:topic] = 'Miscellaneous' if (email[:topic] == nil) || (email[:topic] == '')
     # Check if user is nil, if so, create and save a new user
     user = User.find_by(email: email[:user]) || User.create_confirmed_blocmark_user(email[:user])
 

@@ -41,7 +41,7 @@ RSpec.describe EmailToBookmark do
     subject(:bookmark) { EmailToBookmark.parse(email) }
 
     it 'should return a bookmark object with the topic set to Miscellanious' do
-      expect(bookmark.topic.title).to eq('Miscellanious')
+      expect(bookmark.topic.title).to eq('Miscellaneous')
     end
   end
 

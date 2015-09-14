@@ -15,7 +15,16 @@
  *= require foundation_and_overrides
 
  */
+// General Blocmarks styles
+.title {
+  font-size: 3em;
+  text-align: center;
+}
 
+.delete {
+  font-size: 0.7em;
+  color: red;
+}
 // Blocmarks form styles
 .devise-form {
   border: 1px solid #bbb;
