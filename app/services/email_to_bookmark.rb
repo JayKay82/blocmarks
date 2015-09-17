@@ -1,3 +1,4 @@
+require 'uri'
 # This class takes in an email parses it and returns an unsaved bookmark object
 class EmailToBookmark
   def self.parse(email)
@@ -10,7 +11,10 @@ class EmailToBookmark
     # Check if the topic is nil, if so, create and save a new topic
     topic = user.topics.find_or_create_by(title: email[:topic])
 
+    # Strip the first url from email
+    url = email[:url].slice(URI.regexp)
+
     # Now that you're sure you have a valid user and topic, build and save a new bookmark
-    Bookmark.new(url: email[:url], topic: topic, user: user)
+    Bookmark.new(url: url, topic: topic, user: user)
   end
 end

@@ -1,0 +1,10 @@
+%div.row
+  %h2.title New Bookmark
+  %div.large-12.columns
+    %div.devise-form
+      = form_for [topic,new_bookmark] do |f|
+        .field
+          = f.label(:url, 'URL')
+          = f.text_field :url, autofocus: true, placeholder: 'Enter a website url...'
+        .actions
+          = f.submit 'Save', class: 'button small radius'

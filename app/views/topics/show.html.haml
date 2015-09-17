@@ -1,5 +1,6 @@
 %div.row
   %h2.title= topic.title
   %div.large-12.columns
+    %p.action= link_to 'Create Bookmark', new_topic_bookmark_path(topic), class: 'button small radius'
     %div.bookmark-list
       = render topic.bookmarks
