@@ -1,0 +1,7 @@
+.devise-form
+  = form_for [topic, bookmark] do |f|
+    .field
+      = f.label(:url, 'URL')
+      = f.text_field :url, autofocus: true, placeholder: 'Enter a website url...'
+    .actions
+      = f.submit 'Save', class: 'button small radius'

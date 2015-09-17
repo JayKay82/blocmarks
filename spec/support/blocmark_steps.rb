@@ -21,4 +21,12 @@ module BlocmarkSteps
       click_button 'Save'
     end
   end
+
+  def user_creates_bookmark
+    click_link 'Create Bookmark'
+    within '.devise-form' do
+      fill_in 'URL', with: 'http://www.mycoolsite.com/'
+      click_on 'Save'
+    end
+  end
 end

@@ -1,2 +1,4 @@
-%div.bookmark
+.bookmark
   = link_to bookmark.url, url_with_protocol(bookmark.url), target: '_blank'
+  = link_to 'update', edit_topic_bookmark_path(bookmark.topic, bookmark), class: 'update'
+  = link_to 'delete', [bookmark.topic, bookmark], method: :delete, class: 'delete'

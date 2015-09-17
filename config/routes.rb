@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Topics and bookmarks
   resources :topics, except: [:update] do
-    resources :bookmarks, only: [:new, :create]
+    resources :bookmarks, except: [:index, :show]
   end
 
   #resources :bookmarks, only: [:new, :create]
