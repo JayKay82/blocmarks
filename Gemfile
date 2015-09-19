@@ -23,8 +23,9 @@ group :test, :development do
   gem 'shoulda-matchers'
 end
 
-# Authentication and security
+# Authentication, authorization, and security
 gem 'devise'
+gem 'cancan'
 gem 'figaro', '1.0'
 
 # Gems for markup and styling

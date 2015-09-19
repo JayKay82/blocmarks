@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+  load_and_authorize_resource
+
   def new
     @bookmark = Bookmark.new
   end

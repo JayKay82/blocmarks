@@ -1,4 +1,6 @@
 .bookmark
   = link_to bookmark.url, url_with_protocol(bookmark.url), target: '_blank'
-  = link_to 'update', edit_bookmark_path(bookmark), class: 'update'
-  = link_to 'delete', bookmark, method: :delete, class: 'delete'
+  - if can? :update, bookmark
+    = link_to 'update', edit_bookmark_path(bookmark), class: 'update'
+  - if can? :destroy, bookmark
+    = link_to 'delete', bookmark, method: :delete, class: 'delete'

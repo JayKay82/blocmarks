@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  load_and_authorize_resource
+
   def index
   end
 
@@ -20,6 +22,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    # authorize! :delete, topic
     if topic.destroy
       redirect_to root_path, notice: 'Successfully deleted topic.'
     else

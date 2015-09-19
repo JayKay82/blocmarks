@@ -1,6 +1,6 @@
 %div.row
   %div.topic{id: "topic-#{topic.id}"}
     = link_to topic.title, topic
-    - if topic.bookmarks.empty?
+    - if topic.bookmarks.empty? && (can? :destroy, topic)
       = link_to '- delete', topic, method: :delete, class: 'delete'
     = render topic.bookmarks
