@@ -2,8 +2,14 @@
   %h2 New Topic
   %div.large-12.columns
     %div.devise-form
-      = form_for new_topic do |f|
-        .field
+      = form_for topic do |f|
+        - if topic.errors.any?
+          .errors
+            %h3 Errors!
+            %ul
+              - topic.errors.full_messages.each do |msg|
+                %li= msg
+        = form_group_tag(topic.errors[:title]) do
           = f.label :title
           = f.text_field :title, autofocus: true, placeholder: 'Enter a topic title...'
         .actions

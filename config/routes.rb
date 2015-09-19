@@ -4,11 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: [:update]
 
   # Topics and bookmarks
-  resources :topics, except: [:update] do
-    resources :bookmarks, except: [:index, :show]
-  end
-
-  #resources :bookmarks, only: [:new, :create]
+  resources :topics, except: [:update]
+  resources :bookmarks, except: [:index, :show]
 
   # Incoming emails
   post :incoming, to: 'incoming#create'

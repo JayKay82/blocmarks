@@ -8,7 +8,7 @@ RSpec.describe 'User can CRUD bookmarks:', type: :request do
       create_user
       user_signs_in
       user_creates_new_topic
-      visit topic_path(Topic.first)
+      # visit topic_path(Topic.first)
     end
 
     it 'lets me click on a \'create bookmark\' link to go to a new form' do
@@ -20,6 +20,7 @@ RSpec.describe 'User can CRUD bookmarks:', type: :request do
       click_link 'Create Bookmark'
       within '.devise-form' do
         fill_in 'URL', with: 'http://www.mycoolsite.com/'
+        select('Sample Topic', from: 'bookmark_topic_id')
         click_on 'Save'
       end
       expect(page).to have_content('http://www.mycoolsite.com/')

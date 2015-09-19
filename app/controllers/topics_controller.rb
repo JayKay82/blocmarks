@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @topic = Topic.new
   end
 
   def create
@@ -38,10 +39,6 @@ class TopicsController < ApplicationController
 
   def topic
     @topic ||= Topic.find(params[:id])
-  end
-
-  def new_topic
-    @topic ||= Topic.new
   end
 
   helper_method :topics, :topic, :new_topic

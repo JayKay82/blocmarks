@@ -26,6 +26,7 @@ module BlocmarkSteps
     click_link 'Create Bookmark'
     within '.devise-form' do
       fill_in 'URL', with: 'http://www.mycoolsite.com/'
+      select('Sample Topic', from: 'bookmark_topic_id')
       click_on 'Save'
     end
   end

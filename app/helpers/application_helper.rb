@@ -3,4 +3,12 @@ module ApplicationHelper
   def url_with_protocol(url)
     /^http/i.match(url) ? url : "http://#{url}"
   end
+
+  def form_group_tag(errors, &block)
+     if errors.any?
+       content_tag :div, capture(&block), class: 'field has-error'
+     else
+       content_tag :div, capture(&block), class: 'field'
+     end
+   end
 end

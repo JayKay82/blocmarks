@@ -1,7 +1,16 @@
 .devise-form
-  = form_for [topic, bookmark] do |f|
-    .field
+  = form_for bookmark do |f|
+    - if bookmark.errors.any?
+      .errors
+        %h3 Errors!
+        %ul
+          - bookmark.errors.full_messages.each do |msg|
+            %li= msg
+    = form_group_tag(bookmark.errors[:url]) do
       = f.label(:url, 'URL')
       = f.text_field :url, autofocus: true, placeholder: 'Enter a website url...'
+    .field
+      = f.label :topic
+      = f.collection_select :topic_id, Topic.all, :id, :title, {}, multiple: false
     .actions
       = f.submit 'Save', class: 'button small radius'
