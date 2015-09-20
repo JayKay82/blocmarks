@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :topics
   has_many :bookmarks
+  has_many :likes, dependent: :destroy
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,5 +16,9 @@ class User < ActiveRecord::Base
     user.save!
     user.send_reset_password_instructions
     user
+  end
+
+  def liked(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
   end
 end

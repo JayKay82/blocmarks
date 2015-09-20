@@ -1,0 +1,8 @@
+- if like = current_user.liked(bookmark)
+  = link_to [bookmark, like], class: 'button tiny radius alert', method: :delete do
+    %i.fi-dislike.likes
+    &nbsp; Unlike
+- else
+  = link_to [bookmark, Like.new], class: 'button tiny radius', method: :post do
+    %i.fi-like.likes
+    &nbsp; Like

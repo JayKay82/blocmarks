@@ -15,10 +15,16 @@
  *= require foundation_and_overrides
 
  */
+@import "foundation-icons";
+
 // General Blocmarks styles
 .title {
   font-size: 3em;
   text-align: center;
+}
+
+.likes {
+  font-size: 1.2em;
 }
 
 .action {

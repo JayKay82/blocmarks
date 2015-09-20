@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:update]
 
-  # Topics and bookmarks
+  # Topics and bookmarks (with likes)
   resources :topics, except: [:update]
-  resources :bookmarks, except: [:index, :show]
+  resources :bookmarks, except: [:index, :show] do
+    resources :likes, only: [:create, :destroy]
+  end
 
   # Incoming emails
   post :incoming, to: 'incoming#create'

@@ -1,4 +1,5 @@
 .bookmark
+  = render partial: 'likes/like', locals: { bookmark: bookmark }
   = link_to bookmark.url, url_with_protocol(bookmark.url), target: '_blank'
   - if can? :update, bookmark
     = link_to 'update', edit_bookmark_path(bookmark), class: 'update'
