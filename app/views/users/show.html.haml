@@ -1,0 +1,12 @@
+.row
+  %h2.title My Bookmarks
+  .large-12.columns
+    - user_bookmarks.each do |topic, bookmarks|
+      %h3= topic.title
+      = render bookmarks
+.row
+  %h2.title My Liked Bookmarks
+  .large-12.columns
+    - user_liked_bookmarks.each do |topic, bookmarks|
+      %h3= topic.title
+      = render bookmarks

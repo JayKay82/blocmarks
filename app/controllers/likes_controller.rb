@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   def create
     like = current_user.likes.build(bookmark: bookmark)
-  
+
     if like.save
       redirect_to :back, notice: 'Successfully liked bookmark.'
     else
@@ -24,4 +24,6 @@ class LikesController < ApplicationController
   def bookmark
     @bookmark ||= Bookmark.find(params[:bookmark_id])
   end
+
+  helper_method :bookmark
 end

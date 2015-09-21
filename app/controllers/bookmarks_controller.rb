@@ -28,9 +28,9 @@ class BookmarksController < ApplicationController
 
   def destroy
     if bookmark.destroy
-      redirect_to root_path, notice: 'Successfully deleted your bookmark.'
+      redirect_to :back, notice: 'Successfully deleted your bookmark.'
     else
-      redirect_to root_path, error: 'Unable to delete your bookmark. Please try again.'
+      redirect_to :back, error: 'Unable to delete your bookmark. Please try again.'
     end
   end
 

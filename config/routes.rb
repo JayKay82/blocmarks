@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Users
   devise_for :users
-  resources :users, only: [:update]
+  resources :users, only: [:show, :update]
 
   # Topics and bookmarks (with likes)
   resources :topics, except: [:update]

@@ -3,4 +3,5 @@ class Bookmark < ActiveRecord::Base
   belongs_to :user
   has_many :likes, dependent: :destroy
   validates :url, uniqueness: true, presence: { message: 'URL can\'t be empty' }
+  validates :topic, presence: true
 end
