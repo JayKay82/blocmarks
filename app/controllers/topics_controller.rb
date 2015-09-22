@@ -1,11 +1,12 @@
 class TopicsController < ApplicationController
   before_action :load_topic, only: [:create]
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   def index
   end
 
   def show
+    @topic = Topic.friendly.find(params[:id])
   end
 
   def new
@@ -39,7 +40,7 @@ class TopicsController < ApplicationController
   end
 
   def topic
-    @topic ||= Topic.find(params[:id])
+    @topic ||= Topic.friendly.find(params[:id])
   end
 
   def load_topic
