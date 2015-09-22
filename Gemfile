@@ -34,6 +34,7 @@ gem 'erb2haml', group: :development
 gem 'sass-rails', '~> 5.0'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
+gem 'embedly', '~> 1.9.1'
 
 # Gems for JS
 gem 'uglifier', '>= 1.3.0'

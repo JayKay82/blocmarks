@@ -16,5 +16,8 @@ class Ability
     # Bookmarks
     can :create, Bookmark
     can [:update, :destroy], Bookmark, user_id: user.id
+
+    # Likes
+    can [:create, :destroy], Like
   end
 end

@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :load_topic, only: [:create]
   load_and_authorize_resource
 
   def index
@@ -12,8 +13,6 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = current_user.topics.build(topic_params)
-
     if @topic.save
       redirect_to root_path, notice: 'Successfully created new topic.'
     else
@@ -22,7 +21,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    # authorize! :delete, topic
     if topic.destroy
       redirect_to root_path, notice: 'Successfully deleted topic.'
     else
@@ -42,6 +40,10 @@ class TopicsController < ApplicationController
 
   def topic
     @topic ||= Topic.find(params[:id])
+  end
+
+  def load_topic
+    @topic = current_user.topics.build(topic_params)
   end
 
   helper_method :topics, :topic, :new_topic

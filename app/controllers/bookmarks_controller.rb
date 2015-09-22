@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_action :load_bookmark, only: [:create]
   load_and_authorize_resource
 
   def new
@@ -6,8 +7,6 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = current_user.bookmarks.build(bookmark_params)
-
     if @bookmark.save
       redirect_to root_path, notice: 'Successfully created a new bookmark.'
     else
@@ -42,6 +41,10 @@ class BookmarksController < ApplicationController
 
   def bookmark
     @bookmark ||= Bookmark.find(params[:id])
+  end
+
+  def load_bookmark
+    @bookmark = current_user.bookmarks.build(bookmark_params)
   end
 
   # def topics

@@ -1,7 +1,12 @@
-.bookmark
-  = render partial: 'likes/like', locals: { bookmark: bookmark }
-  = link_to bookmark.url, url_with_protocol(bookmark.url), target: '_blank'
-  - if can? :update, bookmark
-    = link_to 'update', edit_bookmark_path(bookmark), class: 'update'
-  - if can? :destroy, bookmark
-    = link_to 'delete', bookmark, method: :delete, class: 'delete'
+.bookmark.large-5.columns
+  %div.left
+    = image_tag(get_thumbnail_for(bookmark.url), class: 'website-thumb')
+  .links
+    = render partial: 'likes/like', locals: { bookmark: bookmark }
+    %br
+    = link_to bookmark.url, url_with_protocol(bookmark.url), target: '_blank'
+    %br
+    - if can? :update, bookmark
+      = link_to 'update', edit_bookmark_path(bookmark), class: 'update'
+    - if can? :destroy, bookmark
+      = link_to 'delete', bookmark, method: :delete, class: 'delete'
